@@ -8,7 +8,7 @@ const {paths} = require('./common');
 
 module.exports = {
     mode: 'development',
-    devtool: 'eval-source-map',
+    devtool: 'inline-source-map',
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
