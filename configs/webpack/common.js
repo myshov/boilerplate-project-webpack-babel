@@ -8,10 +8,12 @@ const CONFIGS_DIR = path.resolve(__dirname, '../../configs');
 
 const config = {
     context: SRC_DIR,
-    entry: './index.js',
+    entry: {
+        app: './index.js',
+    },
     output: {
         path: DIST_DIR,
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         publicPath: '/',
     },
     module: {
@@ -22,6 +24,11 @@ const config = {
             ],
             loader: 'babel-loader',
         }],
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+        },
     },
 };
 
