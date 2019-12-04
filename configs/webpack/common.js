@@ -13,8 +13,8 @@ const config = {
     },
     output: {
         path: DIST_DIR,
-        filename: '[name].bundle.js',
-        chunkFilename: '[name].bundle.js',
+        filename: '[name].[contenthash].js',
+        chunkFilename: '[name].[contenthash].chunk.js',
         publicPath: '/',
     },
     module: {
@@ -27,8 +27,16 @@ const config = {
         }],
     },
     optimization: {
+        moduleIds: 'hashed',
+        runtimeChunk: 'single',
         splitChunks: {
-            chunks: 'all',
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all'
+                }
+            }
         },
     },
 };
