@@ -8,6 +8,12 @@ const {paths} = require('./common');
 
 module.exports = {
     mode: 'development',
+    output: {
+        path: paths.DIST_DIR,
+        filename: '[name].js',
+        chunkFilename: '[name].chunk.js',
+        publicPath: '/',
+    },
     devtool: 'inline-source-map',
     plugins: [
         new CleanWebpackPlugin(),

@@ -8,6 +8,12 @@ const {paths} = require('./common');
 
 module.exports = {
     mode: 'production',
+    output: {
+        path: paths.DIST_DIR,
+        filename: '[name].[contenthash].js',
+        chunkFilename: '[name].[contenthash].chunk.js',
+        publicPath: '/',
+    },
     devtool: 'source-map',
     plugins: [
         new CleanWebpackPlugin(),

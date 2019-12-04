@@ -11,12 +11,6 @@ const config = {
     entry: {
         app: './index.js',
     },
-    output: {
-        path: DIST_DIR,
-        filename: '[name].[contenthash].js',
-        chunkFilename: '[name].[contenthash].chunk.js',
-        publicPath: '/',
-    },
     module: {
         rules: [{
             test: /\.(js)$/,
@@ -35,8 +29,8 @@ const config = {
                     test: /[\\/]node_modules[\\/]/,
                     name: 'vendors',
                     chunks: 'all'
-                }
-            }
+                },
+            },
         },
     },
 };
