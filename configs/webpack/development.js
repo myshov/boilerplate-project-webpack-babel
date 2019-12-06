@@ -15,6 +15,15 @@ module.exports = {
         publicPath: '/',
     },
     devtool: 'inline-source-map',
+    module: {
+        rules: [{
+            test: /\.css$/,
+            use: [
+                'style-loader',
+                'css-loader',
+            ],
+        }],
+    },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
@@ -26,6 +35,7 @@ module.exports = {
         }),
     ],
     devServer: {
+        hot: true,
         contentBase: paths.DIST_DIR,
         overlay: {
             warnings: true,

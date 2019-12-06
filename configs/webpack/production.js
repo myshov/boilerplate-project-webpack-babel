@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const DotenvPlugin = require('dotenv-webpack');
 
 const {paths} = require('./common');
@@ -14,6 +15,15 @@ module.exports = {
         chunkFilename: '[name].[contenthash].chunk.js',
         publicPath: '/',
     },
+    module: {
+        rules: [{
+            test: /\.css$/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                'css-loader',
+            ],
+        }],
+    },
     devtool: 'source-map',
     plugins: [
         new CleanWebpackPlugin(),
@@ -23,6 +33,10 @@ module.exports = {
         }),
         new DotenvPlugin({
             path: path.resolve(paths.CONFIGS_DIR, 'env/production.conf'),
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css',
+            chunkFilename: '[name].[contenthash].chunk.css',
         }),
     ],
 };
