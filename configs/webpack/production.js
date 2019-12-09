@@ -45,6 +45,8 @@ module.exports = {
                     limit: 10 * 1024,
                     name: "images/[name].[contenthash].[ext]",
                 },
+            }, {
+                loader: 'svgo-loader',
             }],
         }],
     },
