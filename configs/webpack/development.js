@@ -28,6 +28,12 @@ module.exports = {
                     },
                 },
             ],
+        }, {
+            test: /\.(jpg|png)$/,
+            use: ['url-loader'],
+        }, {
+            test: /\.svg$/,
+            use: ['svg-url-loader'],
         }],
     },
     plugins: [

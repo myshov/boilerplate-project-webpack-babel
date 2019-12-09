@@ -28,6 +28,24 @@ module.exports = {
                     },
                 },
             ],
+        }, {
+            test: /\.(jpg|png)$/,
+            use: [{
+                loader: 'url-loader',
+                options: {
+                    limit: 10 * 1024,
+                    name: "images/[name].[contenthash].[ext]",
+                },
+            }],
+        }, {
+            test: /\.svg$/,
+            use: [{
+                loader: 'svg-url-loader',
+                options: {
+                    limit: 10 * 1024,
+                    name: "images/[name].[contenthash].[ext]",
+                },
+            }],
         }],
     },
     devtool: 'source-map',
