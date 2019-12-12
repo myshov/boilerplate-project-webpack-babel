@@ -8,6 +8,7 @@ It includes:
 * Eslint
 * Prettier
 * Autoprefixer
+* Jest
 
 ## License
 

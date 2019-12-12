@@ -1,3 +1,3 @@
 const id = arg => arg;
 
-id(1);
+export default id;
