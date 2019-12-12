@@ -1,1 +1,3 @@
-const some = test2 => {};
+const id = arg => arg;
+
+id(1);
