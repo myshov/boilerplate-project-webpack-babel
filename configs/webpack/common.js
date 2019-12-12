@@ -8,9 +8,6 @@ const CONFIGS_DIR = path.resolve(__dirname, '../../configs');
 
 const config = {
   context: SRC_DIR,
-  entry: {
-    app: './index.js',
-  },
   module: {
     rules: [
       {

@@ -8,6 +8,9 @@ const { paths } = require('./common');
 
 module.exports = {
   mode: 'development',
+  entry: {
+    app: './index.js',
+  },
   output: {
     path: paths.DIST_DIR,
     filename: '[name].js',

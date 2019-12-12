@@ -9,6 +9,15 @@ const { paths } = require('./common');
 
 module.exports = {
   mode: 'production',
+  entry: {
+    app: [
+      './index.js',
+      // add polyfills explicitly for transpiled dynamic import
+      // @see https://babeljs.io/docs/en/babel-plugin-syntax-dynamic-import
+      'core-js/modules/es.promise',
+      'core-js/modules/es.array.iterator',
+    ],
+  },
   output: {
     path: paths.DIST_DIR,
     filename: '[name].[contenthash].js',
